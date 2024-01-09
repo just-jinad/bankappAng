@@ -1,68 +1,227 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Sign Up Form</title>
+  </head>
+
+  <body>
+    <div class="p-5">
+      <div class="login-box mx-auto">
+        <h2>Sign Up Form</h2>
+        <form [formGroup]="bankForm">
+
+          <div class="user-box">
+            <input type="text" 
+            formControlName="userName"
+            minlength="3"
+            maxlength="3"
+            class="form-control bg-white text-black"
+            id="fn" />
+            <label>Full Name</label>
+          </div>
+          <div class="user-box">
+            <input type="text"
+          
+             formControlName="userEmail"
+             id="fn" />
+            <label>Email</label>
+          </div>
+          <div class="user-box">
+            <input type="text"
+             name=""
+             formControlName="userPhone"
+              id="fn" />
+            <label>Phone Num</label>
+          </div>
+          <div class="user-box">
+            <input type="text" 
+            formControlName="userGender"
+           
+            id="firstPin" />
+            <label>Gender</label>
+          </div>
+
+          <div class="user-box">
+            <input type="text" 
+       
+            formControlName="userDOB"
+            id="em" />
+            <label>DOB</label>
+          </div>
+
+          <div class="user-box">
+            <input type="text" 
+            
+            formControlName="userAdd"
+            id="firstPin" />
+            <label>Address</label>
+          </div>
+
+          <div class="user-box">
+            <input type="password" 
+       
+            formControlName="userPin"
+            id="firstPin" />
+            <label>Pin</label>
+          </div>
+          <button class="btn btn-transparent"  (click)="userReg()" >
+          <a >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+           Submit
+          </a>
+        </button>
+      </form>
+          <p class="text-white">Already have an account?</p>
+      </div>
+    </div>
+  </body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Sign Up Form</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Sign Up Form</title>
-</head>
+  <body>
+    <div class="p-5">
+      <div class="login-box mx-auto">
+        <h2>Sign Up Form</h2>
+        <form>
 
-<body>
-  <div class="p-5">
-    <div class="login-box mx-auto">
-      <h2>Sign Up Form</h2>
-      <form onsubmit="return false">
-        <div class="user-box">
-          <input type="text" name="" id="fn">
-          <label>Username</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" id="fn">
-          <label>Username</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" id="fn">
-          <label>Username</label>
-        </div>
-        <div class="user-box">
-          <input type="text" name="" id="em">
-          <label>Email</label>
-        </div>
-        <div class="user-box">
-          <input type="password" name="" id="firstPin">
-          <label>Password</label>
-        </div>
 
-        <div class="user-box">
-          <input type="password" name="" id="firstPin">
-          <label>Password</label>
-        </div>
+          <div class="user-box">
+            <input
+              [(ngModel)]=" userName"
+              class="form-control my-3"
+              type="text"
+              name="firstName"
+              placeholder="Enter Full Name"
+              #fname="ngModel"
+              minlength="2"
+              required
+              [class.is-valid]="fname.valid && fname.dirty"
+              [class.is-invalid]="fname.invalid && fname.dirty"
+              id="fn"
+            />
+            <label>Full Name</label>
+          </div>
 
-        <div class="user-box">
-          <input type="password" name="" id="firstPin">
-          <label>Password</label>
-        </div>
 
-        <div class="user-box">
-          <input type="password" name="" id="firstPin">
-          <label>Password</label>
-        </div>
-        <div class="user-box">
-          <input type="password" name="" id="secPin">
-          <label>Confirm Password</label>
-        </div>
-        <a href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Submit
-        </a>
-        <p class="text-white">Already have an account?</p>
-      </form>
+          <div class="user-box">
+            <input type="email"
+            [(ngModel)]="  userEmail"
+            class="form-control my-3"
+            name="lastName"
+            #mail="ngModel"
+            placeholder="enter email"
+            required
+            email
+            [class.is-valid]="mail.valid && mail.dirty"
+            [class.is-invalid]="mail.invalid && mail.dirty"
+            id="fn" />
+            <label>Email</label>
+          </div>
+
+
+          <div class="user-box">
+            <input type="text"
+            [(ngModel)]=" userAdd"
+            class="form-control my-3"
+            #add="ngModel"
+            required
+            placeholder="Enter Address in Full"
+            name="address" 
+            [class.is-valid]="add.valid && add.dirty"
+            [class.is-invalid]="add.invalid && add.dirty"
+            minlength="10"
+            id="em" />
+            <label>Address</label>
+          </div>
+          <div class="user-box">
+            <input type="number" 
+            name="phoneNum" 
+            [(ngModel)]="userPhone"
+            #num="ngModel"
+            [class.is-valid]="num.valid && num.dirty"
+            [class.is-invalid]="num.invalid && num.dirty"
+            required
+            class="form-control "
+            minlength="11"
+            maxlength="11"
+            />
+            <label>Phone Num</label>
+          </div>
+
+          <div class="user-box">
+            <input type="date"
+            required
+             name="dateOfBirth"
+             #date="ngModel"
+             [(ngModel)]="userDOB"
+             [class.is-valid]="date.valid && date.dirty"
+             [class.is-invalid]="date.invalid && date.dirty"
+              id="fn" />
+            <label>DOB</label>
+          </div>
+
+
+          <div class="user-box">
+            <input type="text" 
+            class="form-control"
+            [(ngModel)]=" userGender"
+            #gen="ngModel"
+            name="genders"
+            minlength="4"
+            maxlength="6"
+            required
+            [class.is-valid]="gen.valid && gen.dirty"
+            [class.is-invalid]="gen.invalid && gen.dirty"
+            
+            />
+            <label>Gender</label>
+          </div>
+
+          <div class="user-box">
+            <input
+              type="password"
+              [(ngModel)]=" userPin"
+              class="form-control my-3"
+              name="pin"
+              #userPinn="ngModel"
+              placeholder="Enter 4 digit pin"
+              minlength="4"
+              maxlength="4"
+              required
+              [class.is-valid]="userPinn.valid && userPinn.dirty"
+              [class.is-invalid]="userPinn.invalid && userPinn.dirty"
+
+             
+            />
+            <label>Pin</label>
+          </div>
+
+          <button class="btn btn-transparent" (click)="userReg()">
+          <a >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </a>
+        </button>
+          <p class="text-white">Already have an account?</p>
+        </form>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
