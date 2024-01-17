@@ -12,23 +12,32 @@
   <div class="p-5">
     <div class="login-box mx-auto">
       <h2>Login  Form</h2>
-      <form onsubmit="return false">
-      
+      <form >
+        <lib-toastify-toast-container></lib-toastify-toast-container>
+        
         <div class="user-box">
-          <input type="password" name="" id="firstPin">
+          <input type="text"
+          [(ngModel)]="userEmail"
+           name="usersEmail" 
+           id="firstPin">
           <label>Email</label>
         </div>
         <div class="user-box">
-          <input type="password" name="" id="secPin">
+          <input type="password" 
+          [(ngModel)]="userPin"
+          name="usersPin" 
+          id="secPin">
           <label> Password</label>
         </div>
-        <a href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Submit
-        </a>
+        <button class="btn btn-transparent" (click)="userLogin()">
+          <a >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </a>
+        </button>
         <p class="text-white">Forgot Password?</p>
       </form>
     </div>

@@ -9,13 +9,31 @@
     <div>
 
 
-    <div class="text-white" style="margin: 0% 15% 0% 10%;">
+    <div class="text-white" style="margin: 0% 15% 0% 10%;" [formGroup]="bank">
         <br>
        <h6>Make 3 transfers per day for free!</h6><br><br>
-            <input class="form-control " type="text" placeholder="Enter 10 digit account number"><br>
-            <input class="form-control " type="text" placeholder="Enter Amount"><br>
-            <input class="form-control " type="text" placeholder="Select Bank">
-            <button class="mt-3 btn btn-success">Make Transfer</button>
+            <input class="form-control " 
+            type="text" 
+            formControlName="acctNum"
+            placeholder="Enter 10 digit account number"><br>
+
+            <input class="form-control " 
+            formControlName="userAmount"
+            type="text" 
+            placeholder="Enter Amount"><br>
+
+            <!-- <input class="form-control " type="text" placeholder="Select Bank"> -->
+            <select name="" id="" class="form-control" formControlName="listOfbanks">
+              <option *ngFor="let item of bankList" [value]="item.code" >{{item.name}}</option>
+            </select><br>
+
+            <input class="form-control " 
+            type="number" 
+            formControlName="userPin"
+            placeholder="Enter 4 digit pin"><br>
+            
+            <button class="mt-3 btn btn-success" (click)="makeTransfer()">Make Transfer</button>
+
     
     </div><br><br><br>
     

@@ -11,6 +11,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TransferpageComponent } from './transferpage/transferpage.component';
+import { AngularToastifyModule, ToastService } from 'angular-toastify';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +31,11 @@ import { TransferpageComponent } from './transferpage/transferpage.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    AngularToastifyModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [  ToastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
