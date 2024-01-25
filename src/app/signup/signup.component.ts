@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DbService } from '../services/db.service';
+import {  Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 interface bankuser {
@@ -28,7 +30,7 @@ export class SignupComponent {
   // registrationStatus: boolean;
   // registrationMessage: string;
 
-  constructor(public service: DbService) {}
+  constructor(public service: DbService, public routes:Router) {}
   
   // public bankForm = this.formBuilder.group({
   //   userName:['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
@@ -75,10 +77,20 @@ export class SignupComponent {
         let registrationMessage = data.message;
         console.log(registrationMessage);
         if (registrationStatus == true) {
-          alert(registrationMessage)
-          window.location.href = "/login"
+          Swal.fire('Sign Up Successful')
+          setTimeout(() => {
+            this.routes.navigate(['/login'])
+          }, 2000);
         }else{
-          alert(registrationMessage)
+          Swal.fire({
+            icon: 'warning',
+            text: 'An Error Occured'
+          }).then((res)=>{
+            Swal.fire(
+              registrationMessage,
+            )
+
+          })
         }
         
       },

@@ -12,10 +12,19 @@
     <div class="text-white" style="margin: 0% 15% 0% 10%;" [formGroup]="bank">
         <br>
        <h6>Make 3 transfers per day for free!</h6><br><br>
+            <input 
+            type="text" 
+            formControlName="senderPhone"
+             class="form-control "
+             value={{this.userAcct}}
+            placeholder="Enter your acc number" id="userAkant"><br>
+
+            <!-- <p formControlName="senderPhone" class="form-control " >{{   this.userAcct}}</p> -->
+
             <input class="form-control " 
             type="text" 
             formControlName="acctNum"
-            placeholder="Enter 10 digit account number"><br>
+            placeholder="Enter receiver account number"><br>
 
             <input class="form-control " 
             formControlName="userAmount"
@@ -28,7 +37,7 @@
             </select><br>
 
             <input class="form-control " 
-            type="number" 
+            type="password" 
             formControlName="userPin"
             placeholder="Enter 4 digit pin"><br>
             

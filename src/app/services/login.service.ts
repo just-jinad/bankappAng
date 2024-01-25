@@ -12,9 +12,7 @@ export class LoginService {
    return this.http.post("http://localhost/mybankapp/login.php", obj)
   }
 
-  withdrawalService(obj:any){
-    return this.http.post("http://localhost/mybankapp/withdraw.php", obj)
-  }
+ 
 
   // withdrawal(amount: number, userPin: string): Observable<any> {
   //   const withdrawalData = { amount, userPin };

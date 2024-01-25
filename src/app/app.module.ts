@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TransferpageComponent } from './transferpage/transferpage.component';
 import { AngularToastifyModule, ToastService } from 'angular-toastify';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DisplayComponent } from './display/display.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -24,7 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignupComponent,
     LoginComponent,
     DashboardComponent,
-    TransferpageComponent
+    TransferpageComponent,
+    DisplayComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

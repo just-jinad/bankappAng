@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { ToastService } from 'angular-toastify';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-login',
@@ -34,9 +36,24 @@ export class LoginComponent {
         console.log(loginStatus);
 
         if (loginStatus == true) {
-          this.route.navigate(["/dashboard"])
+          Swal.fire('Login Successful')
+          localStorage.setItem('user_id', data.userData.user_id);
+
+          setTimeout(() => {
+            
+            this.route.navigate(["/dashboard"])
+          }, 2000);
         }else{
-          alert(loginMessage)
+          Swal.fire({
+            icon: 'warning',
+            text: 'An Error Occured'
+          }).then((res)=>{
+            Swal.fire(
+           
+          loginMessage
+            )
+
+          })
         }
         
       },

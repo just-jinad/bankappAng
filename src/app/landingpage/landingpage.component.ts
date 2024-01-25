@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import  * AS from "aos";
 
 @Component({
   selector: 'app-landingpage',
