@@ -1,88 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Sign Up Form</title>
-  </head>
-
-  <body>
-    <div class="p-5">
-      <div class="login-box mx-auto">
-        <h2>Sign Up Form</h2>
-        <form [formGroup]="bankForm">
-
-          <div class="user-box">
-            <input type="text" 
-            formControlName="userName"
-            minlength="3"
-            maxlength="3"
-            class="form-control bg-white text-black"
-            id="fn" />
-            <label>Full Name</label>
-          </div>
-          <div class="user-box">
-            <input type="text"
-          
-             formControlName="userEmail"
-             id="fn" />
-            <label>Email</label>
-          </div>
-          <div class="user-box">
-            <input type="text"
-             name=""
-             formControlName="userPhone"
-              id="fn" />
-            <label>Phone Num</label>
-          </div>
-          <div class="user-box">
-            <input type="text" 
-            formControlName="userGender"
-           
-            id="firstPin" />
-            <label>Gender</label>
-          </div>
-
-          <div class="user-box">
-            <input type="text" 
-       
-            formControlName="userDOB"
-            id="em" />
-            <label>DOB</label>
-          </div>
-
-          <div class="user-box">
-            <input type="text" 
-            
-            formControlName="userAdd"
-            id="firstPin" />
-            <label>Address</label>
-          </div>
-
-          <div class="user-box">
-            <input type="password" 
-       
-            formControlName="userPin"
-            id="firstPin" />
-            <label>Pin</label>
-          </div>
-          <button class="btn btn-transparent"  (click)="userReg()" >
-          <a >
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-           Submit
-          </a>
-        </button>
-      </form>
-          <p class="text-white">Already have an account?</p>
-      </div>
-    </div>
-  </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -107,14 +22,14 @@
 
           <div class="user-box">
             <input
-              [(ngModel)]=" userName"
+            required
+            [(ngModel)]=" userName"
               class="form-control my-3"
               type="text"
               name="firstName"
               placeholder="Enter Full Name"
               #fname="ngModel"
               minlength="2"
-              required
               [class.is-valid]="fname.valid && fname.dirty"
               [class.is-invalid]="fname.invalid && fname.dirty"
               id="fn"

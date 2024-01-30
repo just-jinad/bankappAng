@@ -77,7 +77,10 @@ export class SignupComponent {
         let registrationMessage = data.message;
         console.log(registrationMessage);
         if (registrationStatus == true) {
-          Swal.fire('Sign Up Successful')
+          Swal.fire(
+            {
+              icon: 'success',
+              text:'Sign Up Successful'})
           setTimeout(() => {
             this.routes.navigate(['/login'])
           }, 2000);

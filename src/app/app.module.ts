@@ -15,6 +15,8 @@ import { AngularToastifyModule, ToastService } from 'angular-toastify';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DisplayComponent } from './display/display.component';
 import { AboutComponent } from './about/about.component';
+import { AirtimeComponent } from './airtime/airtime.component';
+import { DataComponent } from './data/data.component';
 
 
 
@@ -28,7 +30,9 @@ import { AboutComponent } from './about/about.component';
     DashboardComponent,
     TransferpageComponent,
     DisplayComponent,
-    AboutComponent
+    AboutComponent,
+    AirtimeComponent,
+    DataComponent
   ],
   imports: [
     BrowserModule,

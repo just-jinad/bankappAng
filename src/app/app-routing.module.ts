@@ -7,6 +7,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TransferpageComponent } from './transferpage/transferpage.component';
 import { DisplayComponent } from './display/display.component';
 import { AboutComponent } from './about/about.component';
+import { AirtimeComponent } from './airtime/airtime.component';
+import { DataComponent } from './data/data.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   {path:"", component:LandingpageComponent},
@@ -14,7 +17,10 @@ const routes: Routes = [
   {path:"signup", component:SignupComponent},
   {path:"login", component:LoginComponent},
   {path:"dashboard", component:DashboardComponent},
+  {path:"auth", component:AuthService},
   {path:"about", component:AboutComponent},
+  {path:"airtime", component:AirtimeComponent},
+  {path:'data', component:DataComponent},
   {path:"contact", component:DisplayComponent},
   {path:"transferpage", component:TransferpageComponent}
 ];

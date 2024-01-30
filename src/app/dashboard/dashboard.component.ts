@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  amountStar:boolean  = false
  public userAmount: string | number = "";
  public userName: string = "";
  public userAcct: string | number = "";
@@ -54,6 +55,9 @@ ngOnInit() {
 tfBtn = () => {
   this.router.navigateByUrl('transferpage');
 }
-// ... (existing code)
+
+amountSta(){
+  this.amountStar = !this.amountStar
+}
 
 }

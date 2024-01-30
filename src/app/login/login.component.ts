@@ -36,7 +36,9 @@ export class LoginComponent {
         console.log(loginStatus);
 
         if (loginStatus == true) {
-          Swal.fire('Login Successful')
+          Swal.fire({
+            icon: 'success',
+            text:'Login Successful'})
           localStorage.setItem('user_id', data.userData.user_id);
 
           setTimeout(() => {
