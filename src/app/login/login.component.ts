@@ -47,11 +47,11 @@ export class LoginComponent {
           }, 2000);
         }else{
           Swal.fire({
-            icon: 'warning',
+            icon: 'error',
             text: 'An Error Occured'
           }).then((res)=>{
             Swal.fire(
-           
+          '❌❌',
           loginMessage
             )
 

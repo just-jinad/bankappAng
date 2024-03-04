@@ -24,6 +24,8 @@ ngOnInit() {
 
   if (user_id) {
     // User_id available, fetch user data from the server
+
+    // http://justjinad.atwebpages.com/dashboard.php
     this.http.get<any>('http://localhost/mybankapp/dashboard.php', {
       params: { user_id: user_id }
     }).subscribe(
@@ -53,7 +55,7 @@ ngOnInit() {
 }
 
 tfBtn = () => {
-  this.router.navigateByUrl('transferpage');
+  this.router.navigate(['transferpage'])
 }
 
 amountSta(){

@@ -17,6 +17,7 @@ import { DisplayComponent } from './display/display.component';
 import { AboutComponent } from './about/about.component';
 import { AirtimeComponent } from './airtime/airtime.component';
 import { DataComponent } from './data/data.component';
+import { ErrorpageComponent } from './errorpage/errorpage.component';
 
 
 
@@ -32,7 +33,8 @@ import { DataComponent } from './data/data.component';
     DisplayComponent,
     AboutComponent,
     AirtimeComponent,
-    DataComponent
+    DataComponent,
+    ErrorpageComponent
   ],
   imports: [
     BrowserModule,

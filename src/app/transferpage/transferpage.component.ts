@@ -22,6 +22,7 @@ export class TransferpageComponent implements OnInit, OnDestroy {
   public userName: string = '';
   public userAcct: string | number = '';
   userData: any;
+  senderPhone:any
 
   constructor(public http: HttpClient, public formDetail: FormBuilder) {
     this.bank = this.formDetail.group({
@@ -46,7 +47,7 @@ export class TransferpageComponent implements OnInit, OnDestroy {
               title: 'Receiver Name',
               text: data.receiverName,
               icon: 'info',
-              showCancelButton: false,
+              showCancelButton: true,
               confirmButtonText: 'OK'
             });
           } else {
@@ -85,6 +86,12 @@ export class TransferpageComponent implements OnInit, OnDestroy {
               this.userAcct = data.userData.userPhone;
               console.log('User Amount:', this.userAmount);
               console.log(this.userAcct);
+              
+              console.log(this.userAcct);
+              this.bank.patchValue({
+                senderPhone: this.userAcct
+              })
+              console.log(this.bank);
             } else {
               console.log('Error fetching user data:', data.message);
             }
@@ -104,6 +111,30 @@ export class TransferpageComponent implements OnInit, OnDestroy {
   }
 
   makeTransfer() {
+
+    const senderName = this.userName;
+    const senderPhone = this.userAcct;
+  
+    const receiverName = this.bank.get('receiverName')?.value;
+    const receiverAccount = this.bank.get('acctNum')?.value;
+  
+    const transactionType = 'Transfer';
+  
+    const amount = this.bank.get('userAmount')?.value;
+  
+    const transferData = {
+      senderName: senderName,
+      senderPhone: senderPhone,
+      receiverName: receiverName,
+      receiverAccount: receiverAccount,
+      transactionType: transactionType,
+      amount: amount
+    };
+
+    console.log(transferData);
+    
+
+
     console.log(this.bank.value);
     this.http.post('http://localhost/mybankapp/accVerify.php', this.bank.value).subscribe(
       (response: any) => {
@@ -120,9 +151,6 @@ export class TransferpageComponent implements OnInit, OnDestroy {
             text: 'Transfer Successful '});
 
            this.bank.reset()
-          //  setTimeout(() => {
-          //   window.location.href = "/dashboard"
-          //  }, 4000);
 
         } else if (bankStatus == false) {
           Swal.fire({
@@ -145,3 +173,5 @@ export class TransferpageComponent implements OnInit, OnDestroy {
     return this.http.get<any>(`http://localhost/mybankapp/fetchReceiverName.php?accountNumber=${accountNumber}`);
   }
 }
+
+

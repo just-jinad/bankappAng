@@ -9,7 +9,10 @@ export class LoginService {
 
   constructor(public http: HttpClient) { }
   userLoginService(obj:any){
-   return this.http.post("http://localhost/mybankapp/login.php", obj)
+   
+    // http://justjinad.atwebpages.com/login.php
+    // http://localhost/mybankapp/login.php
+   return this.http.post("  http://localhost/mybankapp/login.php", obj)
   }
 
  
