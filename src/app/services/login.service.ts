@@ -8,11 +8,12 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   constructor(public http: HttpClient) { }
+  public url : string = "http://justjinad.atwebpages.com"
   userLoginService(obj:any){
    
     // http://justjinad.atwebpages.com/login.php
     // http://localhost/mybankapp/login.php
-   return this.http.post("  http://localhost/mybankapp/login.php", obj)
+   return this.http.post('http://justjinad.atwebpages.com/login.php', obj)
   }
 
  

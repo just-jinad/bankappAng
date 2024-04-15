@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
  public userAmount: string | number = "";
  public userName: string = "";
  public userAcct: string | number = "";
+ public url : string = "http://justjinad.atwebpages.com"
  userData: any;
 
   constructor(private router: Router, public http: HttpClient) {}
@@ -24,9 +25,9 @@ ngOnInit() {
 
   if (user_id) {
     // User_id available, fetch user data from the server
-
+http://localhost/mybankapp/dashboard.php
     // http://justjinad.atwebpages.com/dashboard.php
-    this.http.get<any>('http://localhost/mybankapp/dashboard.php', {
+    this.http.get<any>('http://justjinad.atwebpages.com/dashboard.php', {
       params: { user_id: user_id }
     }).subscribe(
       (data) => {

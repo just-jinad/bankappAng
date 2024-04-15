@@ -7,10 +7,15 @@ import { Injectable } from '@angular/core';
 export class DbService {
 
   constructor(public httpcl: HttpClient) { }
+  // public url : string = "http://justjinad.atwebpages.com"
 
   userSignup(obj:any){
     
     // http://justjinad.atwebpages.com/bankdatabase.php
-    return this.httpcl.post('http://localhost/mybankapp/bankdatabase.php', obj)
+    return this.httpcl.post('http://justjinad.atwebpages.com/signup.php', obj)
+    // return this.httpcl.post('http://localhost/mybankapp/bankdatabase.php', obj) 
+  
   }
+
 }
+

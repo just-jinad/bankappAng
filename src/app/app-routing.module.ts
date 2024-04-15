@@ -19,9 +19,9 @@ const routes: Routes = [
   {path:"signup", component:SignupComponent},
   {path:"login", component:LoginComponent},
 
-  {path:"transferpage", component:TransferpageComponent},
   {path:"dashboard", children:[
     {path:"", component:DashboardComponent},
+    {path:"transferpage", component:TransferpageComponent},
     {path:"airtime", component:AirtimeComponent},
     {path:'data', component:DataComponent},
   ], canActivate:[userGuard]},
@@ -29,13 +29,13 @@ const routes: Routes = [
   {path:"auth", component:AuthService},
   {path:"about", component:AboutComponent},
   {path:"contact", component:DisplayComponent},
-  // {path:"**", component:ErrorpageComponent}
+  {path:"**", component:ErrorpageComponent}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  // imports: [RouterModule.forRoot(routes, { useHash: true })],
+  // imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

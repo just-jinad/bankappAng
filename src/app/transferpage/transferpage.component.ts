@@ -112,28 +112,10 @@ export class TransferpageComponent implements OnInit, OnDestroy {
 
   makeTransfer() {
 
-    const senderName = this.userName;
-    const senderPhone = this.userAcct;
-  
-    const receiverName = this.bank.get('receiverName')?.value;
-    const receiverAccount = this.bank.get('acctNum')?.value;
-  
-    const transactionType = 'Transfer';
-  
-    const amount = this.bank.get('userAmount')?.value;
-  
-    const transferData = {
-      senderName: senderName,
-      senderPhone: senderPhone,
-      receiverName: receiverName,
-      receiverAccount: receiverAccount,
-      transactionType: transactionType,
-      amount: amount
+    const transferDetails = {
+      receiver: this.bank.value.receiver,
+      amount: this.bank.value.amount,
     };
-
-    console.log(transferData);
-    
-
 
     console.log(this.bank.value);
     this.http.post('http://localhost/mybankapp/accVerify.php', this.bank.value).subscribe(
@@ -160,6 +142,7 @@ export class TransferpageComponent implements OnInit, OnDestroy {
           }).then((res) => {
             Swal.fire(bankMessage);
           });
+          this.saveTransferDetails(transferDetails)
           this.bank.reset() 
         }
       },
@@ -168,6 +151,19 @@ export class TransferpageComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  saveTransferDetails(transferDetails: any) {
+    this.http.post('http://localhost/mybankapp/transHistory.php', transferDetails).subscribe(
+      (response: any) => {
+        console.log('Transfer details saved successfully:', response);
+      },
+      (error) => {
+        console.error('Error saving transfer details:', error);
+      }
+    );
+  }
+
+  
 
   fetchReceiverName(accountNumber: string) {
     return this.http.get<any>(`http://localhost/mybankapp/fetchReceiverName.php?accountNumber=${accountNumber}`);
